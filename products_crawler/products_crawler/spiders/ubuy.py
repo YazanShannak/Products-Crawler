@@ -37,12 +37,11 @@ class UbuySpider(scrapy.Spider):
         self.logger.info('Found {} items in the page'.format(len(items)))
         for item in items:
             url = item.xpath(".//h3[@class='product-name']/a/@href").extract_first()
-            yield SplashRequest(url=url, callback=self.parse_item, endpoint='render.html', args={'lua_source' : lua_product_script})
-
+            return SplashRequest(url=url, callback=self.parse_item, endpoint='render.html', args={'lua_source': lua_product_script})
 
 
     def parse_item(self, response):
-        details = response.xpath(".//div[@class='product-details']")
+        details = response.xpath("//div[@class='product-details']")
         name = details.xpath(".//h2[@class='product-name']/text()").extract_first()
         name = self.parse_text(name)
         vendor = details.xpath(".//div[@class='brandname']/span/a/text()").extract_first()
