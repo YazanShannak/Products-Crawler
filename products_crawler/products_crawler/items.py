@@ -11,5 +11,8 @@ import scrapy
 class ProductItem(scrapy.Item):
     # define the fields for your item here like:
     name = scrapy.Field()
-    image_urls = scrapy.Field()
+    vendor = scrapy.Field()
+    price = scrapy.Field()
+    # original_price = scrapy.Field()
+    # description = scrapy.Field()
     pass
