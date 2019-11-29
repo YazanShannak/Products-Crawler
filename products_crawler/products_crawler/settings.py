@@ -76,11 +76,14 @@ SPLASH_URL = 'http://localhost:8050'
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'products_crawler.pipelines.MongoDBPipeline': 300,
+    'products_crawler.pipelines.CustomTextParsePipeline':1,
+    'products_crawler.pipelines.CustomImagePipeline': 2,
+    'products_crawler.pipelines.MongoDBPipeline': 300,
 }
 
+IMAGES_STORE = '/home/yazan/Desktop/JUST/visual-recommendation-engine/crawler/products_crawler/'
 MONGO_URI = 'mongodb://localhost:27017'
-MONGO_DATABASE = 'sivji-sandbox'
+MONGO_DATABASE = 'crawled_products'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

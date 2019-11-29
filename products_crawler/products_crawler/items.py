@@ -13,6 +13,7 @@ class ProductItem(scrapy.Item):
     name = scrapy.Field()
     vendor = scrapy.Field()
     price = scrapy.Field()
-    # original_price = scrapy.Field()
-    # description = scrapy.Field()
+    image_urls = scrapy.Field()
+    images = scrapy.Field()
+    category = scrapy.Field()
     pass
